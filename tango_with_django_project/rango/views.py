@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse
+from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rango.models import Category, Page
-from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from datetime import datetime
 
 
 def index(request):
-    #test
+
     request.session.set_test_cookie()
 
     category_list = Category.objects.order_by('-likes')[:5]
